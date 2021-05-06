@@ -17,14 +17,12 @@ jobs:
       - uses: actions/checkout@v2
       - name: Set up Python
         uses: actions/setup-python@v1
-      - name: run-notebook
-        uses: yaananth/run-notebook@v1
-        env:
-          RUNNER: ${{ toJson(runner) }}
-          SECRETS: ${{ toJson(secrets) }}
-          GITHUB: ${{ toJson(github) }}
-        with:
-          notebook: covid-19/wako/covid-19-Wako.ipynb
+      - name: Install Jupyter
+        run: |
+          pip3 install jupyter
+      - name: Execute Notebook
+        run: |
+          jupyter nbconvert --to notebook --execute covid-19/wako/covid-19-Wako.ipynb
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
