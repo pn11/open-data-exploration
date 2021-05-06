@@ -22,7 +22,7 @@ jobs:
           pip3 install -r covid-19/wako/requirements.txt
       - name: Execute Notebook
         run: |
-          jupyter nbconvert --to notebook --execute covid-19/wako/covid-19-Wako.ipynb --output covid-19/wako/covid-19-Wako.ipynb
+          jupyter nbconvert --to notebook --execute covid-19/wako/covid-19-Wako.ipynb --output covid-19-Wako.ipynb
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
