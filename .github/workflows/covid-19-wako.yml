@@ -17,9 +17,9 @@ jobs:
       - uses: actions/checkout@v2
       - name: Set up Python
         uses: actions/setup-python@v1
-      - name: Install Jupyter
+      - name: Install libaries
         run: |
-          pip3 install jupyter
+          pip3 install -r covid-19/wako/requirements.txt
       - name: Execute Notebook
         run: |
           jupyter nbconvert --to notebook --execute covid-19/wako/covid-19-Wako.ipynb

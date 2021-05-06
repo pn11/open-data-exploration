@@ -1,0 +1,7 @@
+beautifulsoup4
+jupyter
+japanize-matplotlib
+matplotlib
+numpy
+pandas
+requests
