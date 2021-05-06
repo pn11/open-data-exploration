@@ -1,0 +1,37 @@
+name: covid-19-wako
+
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v1
+      - name: run-notebook
+        uses: yaananth/run-notebook@v1
+        env:
+          RUNNER: ${{ toJson(runner) }}
+          SECRETS: ${{ toJson(secrets) }}
+          GITHUB: ${{ toJson(github) }}
+        with:
+          notebook: covid-19/wako/covid-19-Wako.ipynb
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add covid-19/wako/covid-19-Wako.ipynb
+          git commit -m "ran notebook by GitHub Action"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
