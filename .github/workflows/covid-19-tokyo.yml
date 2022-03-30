@@ -1,4 +1,4 @@
-name: covid-19-wako
+name: covid-19-tokyo
 
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
@@ -33,7 +33,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add covid-19/wako/covid-19-Wako.ipynb && git commit -m "ran notebook by GitHub Action"
+          git add covid-19/tokyo-yearwise/covid-19-tokyo-yearwise.ipynb && git commit -m "ran notebook by GitHub Action"
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
