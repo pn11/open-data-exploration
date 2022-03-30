@@ -28,7 +28,7 @@ jobs:
           pip3 install -r covid-19/tokyo-yearwise/requirements.txt
       - name: Execute Notebook
         run: |
-          jupyter nbconvert --to notebook --execute covid-19/tokyo-yearwise/covid-19-tokyo-yearwise.ipynb --output covid-19/tokyo-yearwise/covid-19-tokyo-yearwise.ipynb
+          jupyter nbconvert --to notebook --execute covid-19/tokyo-yearwise/covid-19-tokyo-yearwise.ipynb --output covid-19-tokyo-yearwise.ipynb
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
